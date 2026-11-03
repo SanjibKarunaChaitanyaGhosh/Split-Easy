@@ -7,7 +7,7 @@ chat, edit requests, an activity log, settle-up with recorded payments, and a do
 
 ```
 spliteasy/
-  server/     Express + Mongoose API, Socket.io, PDF, e-mail   (port 8000)
+  server/     Express + Mongoose API, Socket.io, PDF, e-mail   (port 4000)
   client/     React app (plain CSS)                             (port 5173)
   docs/       Architecture, ER description, assumptions (for the college report)
 ```
@@ -28,10 +28,10 @@ npm install
 cp .env.example .env        # Windows: copy .env.example .env
 # edit .env: set MONGO_URI and Jwt_SECRET_KEY
 npm run seed                # optional: creates demo users + a demo trip (EMPTIES the database first)
-npm run dev                 # http://localhost:8000
+npm run dev                 # http://localhost:4000
 ```
 
-You should see `Mongo_URL Database Connected successfully....` and `Server is running on http://localhost:8000`.
+You should see `Mongo_URL Database Connected successfully....` and `Server is running on http://localhost:4000`.
 
 ### Step 2 — frontend (second terminal)
 
@@ -66,7 +66,7 @@ one private window) to see the real-time chat between two users.
 |---|---|---|
 | `MONGO_URI` | yes | MongoDB connection string, e.g. `mongodb://127.0.0.1:27017/spliteasy` |
 | `Jwt_SECRET_KEY` | yes | long random text used to sign login tokens |
-| `PORT` | no | default `8000` |
+| `PORT` | no | default `4000` |
 | `CLIENT_URL` | no | address of the React app (CORS + links inside e-mails). Default `http://localhost:5173` |
 | `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM` | no | e-mail invitations. If `SMTP_HOST` is empty the app shows a **copyable link** (WhatsApp / mailto) instead |
 | `AUTH_RATE_LIMIT_MAX` | no | login/register attempts per IP per 15 min (default 30) |
@@ -75,7 +75,7 @@ one private window) to see the real-time chat between two users.
 
 | Variable | Meaning |
 |---|---|
-| `VITE_PROXY_TARGET` | address of the backend, must match `PORT` in `server/.env` (default `http://localhost:8000`) |
+| `VITE_PROXY_TARGET` | address of the backend, must match `PORT` in `server/.env` (default `http://localhost:4000`) |
 | `VITE_API_URL` | **leave empty** in development. Only for an API hosted on another address |
 
 Restart `npm run dev` after changing any `.env` file.
